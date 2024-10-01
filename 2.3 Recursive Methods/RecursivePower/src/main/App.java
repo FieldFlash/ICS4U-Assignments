@@ -1,8 +1,14 @@
 package main;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println(recursivePower(2, 5));
+        Scanner input = new Scanner(System.in);
+        int base = input.nextInt();
+        int exp = input.nextInt();
+        System.out.println(recursivePower(base, exp));
+        input.close();
     }
 
     public static int recursivePower(int base, int exp) {
