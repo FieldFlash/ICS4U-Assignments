@@ -9,11 +9,12 @@ public class OvalClass {
     private static int numOfOvals = 0;
 
     public static void main(String[] args) {
-        int x1;
-        int x2;
-        int y1;
-        int y2;
-        boolean filled;
+        private int x1;
+        private int x2;
+        private int y1;
+        private int y2;
+        private boolean filled;
+        private static int numOfOvals = 0;
 
     }
 
