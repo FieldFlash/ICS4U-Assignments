@@ -22,7 +22,7 @@ public class App {
                 i++;
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Resizing array...");
-                numbers = new int[numbers.length + 5];
+                numbers = Arrays.copyOf(numbers, numbers.length * 2);
             }
         }
     }
