@@ -41,6 +41,7 @@ public class Villain extends Person{
      * toString method for the Villain class, returns a string containing details about the villain
      * @return String
      */
+    @Override
     public String toString() {
         return "Villain " + getName() + " has strength: " + getStrength() + ", health: " + getHealth() + ", and speed: " + getSpeed();
     }
@@ -51,7 +52,7 @@ public class Villain extends Person{
      * @return
      * @throws InterruptedException
      */
-    public boolean runAway(Hero hero) throws InterruptedException {
+    public boolean escape(Hero hero) throws InterruptedException {
         System.out.println(getName() + " is trying to run away from " + hero.getName());
         Thread.sleep(500);
         if (getSpeed() > hero.getSpeed()) {

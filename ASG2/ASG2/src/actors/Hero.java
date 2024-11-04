@@ -9,12 +9,12 @@ public class Hero extends Person {
     private static int numOfHeroes = 0;
 
     /**
-      * Constructor for the Hero class, takes in a name, strength, health, and speed
-      * @param name
-      * @param strength
-      * @param health
-      * @param speed
-      */
+     * Constructor for the Hero class, takes in a name, strength, health, and speed
+     * @param name
+     * @param strength
+     * @param health
+     * @param speed
+     */
     public Hero(String name, int strength, int health, int speed) {
         super(name, strength, health, speed);
         // incrementing the number of heroes
@@ -42,6 +42,7 @@ public class Hero extends Person {
      * toString method for the Hero class, returns a string containing details about the hero
      * @return String
      */
+    @Override
     public String toString() {
         return "Hero " + getName() + " has strength: " + getStrength() + ", health: " + getHealth() + ", and speed: " + getSpeed();
     }

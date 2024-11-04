@@ -1,13 +1,13 @@
 // package declaration
 package main;
 
-// importing java libraries
-import java.util.Random;
-import java.util.Scanner;
-
 // importing custom classes
 import actors.Hero;
 import actors.Villain;
+
+// importing java libraries
+import java.util.Random;
+import java.util.Scanner;
 
 
 /**
@@ -51,31 +51,35 @@ public class App {
         pause(1);
         
         // prompting the user to start the fight
-        System.out.println("Ready to start? (y/n)");
+        System.out.println("Ready to start? (y/n) or (q) to quit the program (or type 'stats' to see the stats of the characters)");
         String response = input.nextLine(); 
 
         // if the user enters y, the fight will start, otherwise the program will exit
-        if (response.equals("y")) {
-            clear();
-            System.out.println("Starting the fight sequence...");
-            pause(2);
-            clear();
-            System.out.println("The fight has begun!\n");
-            pause(2);
-            if (fight(hero, villain)){
-                pause(1);
-                villain.runAway(hero);
-            } else {
-                pause(1);
-                hero.runAway(villain);
-                System.out.println("The story ends here!");
-            }
-        } else {
-            System.out.println("Goodbye!");
-            System.exit(0);
+        switch (response.toLowerCase()) {
+            case "y":
+                clear();
+                System.out.println("Starting the fight sequence...");
+                pause(2);
+                clear();
+                System.out.println("The fight has begun!\n");
+                pause(2);
+                if (fight(hero, villain)){
+                    pause(1);
+                    villain.escape(hero);
+                } else {
+                    pause(1);
+                    hero.runAway(villain);
+                    System.out.println("The story ends here!");
+                }   break;
+            case "q":
+                System.out.println("Goodbye!");
+                System.exit(0);
+            case "stats":
+                input.close();
+                break;
+            default:
+                break;
         }
-
-        input.close();
     }
     
     /**
@@ -97,7 +101,6 @@ public class App {
             return false;
         }
     }
-
 
     /**
      * Method to display the stats of the hero and villain
