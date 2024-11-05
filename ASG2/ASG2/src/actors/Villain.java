@@ -39,7 +39,7 @@ public class Villain extends Person{
 
     /**
      * toString method for the Villain class, returns a string containing details about the villain
-     * @return String
+     * @return String 
      */
     @Override
     public String toString() {
@@ -48,9 +48,9 @@ public class Villain extends Person{
 
     /**
      * Method for the villain to run away from a hero, prints a message and then sleeps for 500 milliseconds
-     * @param hero
-     * @return
-     * @throws InterruptedException
+     * @param hero hero object passed in to compare speeds
+     * @return boolean
+     * @throws InterruptedException 
      */
     public boolean escape(Hero hero) throws InterruptedException {
         System.out.println(getName() + " is trying to run away from " + hero.getName());

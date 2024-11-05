@@ -4,7 +4,7 @@ package actors;
  * Hero class, inherits the Person class and has a static variable to keep track of the number of heroes created
  * @author Liam Shelston
  * @version 1.0
- * */
+ */
 public class Hero extends Person {
     private static int numOfHeroes = 0;
 

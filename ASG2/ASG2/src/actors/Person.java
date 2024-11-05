@@ -1,6 +1,8 @@
 package actors;
 
 /**
+ * @author Liam Shelston
+ * @version 1.0
  * Person class, used as a parent class for the Hero and Villain classes
  */
 public class Person {

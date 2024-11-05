@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 
 /**
- * Main class of the program, demonstrates the use of the Hero and Villain classes
+ * Main class of the program, displays the use of the Hero and Villain classes
  * @author Liam Shelston
  * @version 1.0
  * */
@@ -19,7 +19,7 @@ public class App {
     /**
      * Main method of the program, generates a hero and villain and then displays their stats and prompts the user to start the fight
      * @param args
-     * @throws Exception
+     * @throws Exception 
      */
     public static void main(String[] args) throws Exception {
         // creating a random object and scanner object
@@ -84,8 +84,8 @@ public class App {
     
     /**
      * Method to simulate a fight between a hero and a villain
-     * @param hero
-     * @param villain
+     * @param hero accepts a hero object
+     * @param villain accepts a villain object
     * @throws InterruptedException 
     */
     public static boolean fight(Hero hero, Villain villain) throws InterruptedException {
@@ -104,8 +104,8 @@ public class App {
 
     /**
      * Method to display the stats of the hero and villain
-     * @param hero
-     * @param villain
+     * @param hero accepts a hero object 
+     * @param villain accepts a villain object
      */
     public static void stats(Hero hero, Villain villain) {
         // displaying the stats of the hero and villain
