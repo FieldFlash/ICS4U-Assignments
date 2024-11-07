@@ -105,7 +105,7 @@ public class App {
     /**
      * Method to display the stats of the hero and villain
      * @param hero accepts a hero object 
-     * @param villain accepts a villain object
+     * @param villain accepts a villain object 
      */
     public static void stats(Hero hero, Villain villain) {
         // displaying the stats of the hero and villain
