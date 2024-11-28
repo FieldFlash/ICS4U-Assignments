@@ -1,4 +1,6 @@
-class StaticStack<T> implements StackADT<T> {
+package StaticStack;
+
+public class StaticStack<T> implements StackADT<T> {
     private int top;
     private T[] stackArray;
     private final int MAX_SIZE;
