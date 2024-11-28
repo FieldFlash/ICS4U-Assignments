@@ -1,4 +1,4 @@
-class DynamicStack<T> implements StackADT<T> {
+public class DynamicStack<T> implements StackADT<T> {
     private LinkedList<T> myList;
     
     // Creates an empty stack (based on a linked list).
