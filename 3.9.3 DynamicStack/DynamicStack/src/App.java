@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public interface App {
     public static void main(String args[]) {
-        clear();
+        //clear();
         Scanner input = new Scanner(System.in);
         String text = input.nextLine();
         String[] start = { "(", "{", "[" };
