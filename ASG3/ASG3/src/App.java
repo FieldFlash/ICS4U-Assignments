@@ -7,7 +7,7 @@ public class App {
     // Main function
     public static void main(String[] args) throws Exception {
         // Clear screen to cleanup input for a nice polish
-        clearScreen();
+        //clearScreen();
 
         // Creating new scanner object ("I was getting warnings without the try")
         try (Scanner input = new Scanner(System.in)) {
