@@ -1,30 +1,39 @@
+/**
+ * Name: Liam Shelston
+ * Date: 2024-12-07
+ * Description: A simple connect 4 game where the player plays against the computer
+ */
 
-// Import scanner 
+package main;
+
+// importing the necessary classes
+import java.util.Random;
 import java.util.Scanner;
 
-// Main class
 public class App {
-    // Main function
+    /**
+     * main method to start the game
+     * @throws Exception if an error occurs
+     */
     public static void main(String[] args) throws Exception {
-        // Clear screen to cleanup input for a nice polish
-        //clearScreen();
-
-        // Creating new scanner object ("I was getting warnings without the try")
+        // instantiate the scanner
         try (Scanner input = new Scanner(System.in)) {
-            
-            // Instantiate the board
+            // create a new board
             Board board = new Board();
-
-            // Draw board and prompt to begin
+            // draw the board
             board.drawBoard();
             System.out.println("press enter to begin");
             input.nextLine();
+            // create a random object
+            Random random = new Random();
 
-            // Game loop, each user gets a turn and it checks for a win
+            // game loop
             while (true) {
                 clearScreen();
                 board.drawBoard();
+                // player's turn
                 System.out.println("Player 1, choose a column: ");
+                // get the player's input and place the tile
                 while (true) {
                     try {
                         int column = input.nextInt();
@@ -37,30 +46,34 @@ public class App {
                     }
                     break;
                 }
+                // check for win
                 board.checkWin();
                 clearScreen();
                 board.drawBoard();
-                System.out.println("Player 2, choose a column: ");
-                while (true) {
-                    try {
-                        int column = input.nextInt();
-                        board.dropTile(2, column);
-                    } catch (Exception e) {
-                        System.out.println("place in bounds 1-6 (no letters)");
-                        Thread.sleep(2000);
-                        clearScreen();
-                        board.drawBoard();
-                    }
-                    break;
+
+                // computer's turn
+                System.out.println("Computer is thinking...");
+                // short delay for fun
+                Thread.sleep(2000); 
+                int column = board.getSmartMove();
+                // places in a random column if the smart move is not possible
+                while (!board.dropTile(2, column)) {
+                    column = random.nextInt(6) + 1;
                 }
+                // check for win
                 board.checkWin();
             }
         } catch (Exception e) {
+            // i have no idea why i get an error without this
             System.out.println("Scanner not instantiated");
         }
     }
 
+    /**
+     * clears the console screen
+     */
     public static void clearScreen() {
+        // refresh the screen without leaving visual clutter above
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
