@@ -23,42 +23,35 @@ class KnockKnockProtocol {
         String theInput = (String) object;
         String theOutput = null;
 
-        switch (state) {
-            case WAITING -> {
-                theOutput = "Knock! Knock!";
+        if (state == WAITING) {
+            theOutput = "Knock! Knock!";
+            state = SENTKNOCKKNOCK;
+        } else if (state == SENTKNOCKKNOCK) {
+            if (theInput.equalsIgnoreCase("Who's there?")) {
+                theOutput = clues[currentJoke];
+                state = SENTCLUE;
+            } else {
+                theOutput = "You're supposed to say \"Who's there?\"! Try again. Knock! Knock!";
+            }
+        } else if (state == SENTCLUE) {
+            if (theInput.equalsIgnoreCase(clues[currentJoke] + " who?")) {
+                theOutput = answers[currentJoke] + " Want another? (y/n)";
+                state = ANOTHER;
+            } else {
+                theOutput = "You're supposed to say \"" + clues[currentJoke] + " who?\"! Try again. Knock! Knock!";
                 state = SENTKNOCKKNOCK;
             }
-            case SENTKNOCKKNOCK -> {
-                if (theInput.equalsIgnoreCase("Who's there?")) {
-                    theOutput = clues[currentJoke];
-                    state = SENTCLUE;
-                } else {
-                    theOutput = "You're supposed to say \"Who's there?\"! Try again. Knock! Knock!";
-                }
-            }
-            case SENTCLUE -> {
-                if (theInput.equalsIgnoreCase(clues[currentJoke] + " who?")) {
-                    theOutput = answers[currentJoke] + " Want another? (y/n)";
-                    state = ANOTHER;
-                } else {
-                    theOutput = "You're supposed to say \"" + clues[currentJoke] + " who?\"! Try again. Knock! Knock!";
-                    state = SENTKNOCKKNOCK;
-                }
-            }
-            case ANOTHER -> {
-                if (theInput.equalsIgnoreCase("y")) {
-                    theOutput = "Knock! Knock!";
-                    if (currentJoke == (clues.length - 1))
-                        currentJoke = 0;
-                    else
-                        currentJoke++;
-                    state = SENTKNOCKKNOCK;
-                } else {
-                    theOutput = "Bye.";
-                    state = WAITING;
-                }
-            }
-            default -> {
+        } else if (state == ANOTHER) {
+            if (theInput.equalsIgnoreCase("y")) {
+                theOutput = "Knock! Knock!";
+                if (currentJoke == (clues.length - 1))
+                    currentJoke = 0;
+                else
+                    currentJoke++;
+                state = SENTKNOCKKNOCK;
+            } else {
+                theOutput = "Bye.";
+                state = WAITING;
             }
         }
         return theOutput;
